@@ -1,0 +1,6 @@
+.background-image {
+    background-image: url('../static/Images/fond.jpeg');
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir toute la div */
+    background-position: center; /* Centre l'image à l'intérieur de la div */ /* Définissez la hauteur de votre div */
+    /* Autres styles pour la div */
+}

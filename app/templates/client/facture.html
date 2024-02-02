@@ -1,0 +1,54 @@
+{% extends 'base_client.html' %}
+{% block title %}
+Invoice
+{% endblock %}
+{% block content %}
+<div class="w-2/3 mx-auto mt-8 p-8 bg-white shadow-md rounded-md">
+
+    <div class="text-4xl font-bold mb-4 flex justify-center items-center"> <span><img class="w-8 h-8 mr-2"
+                src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" /></span> BIGSTORE</div>
+
+    <div class="mb-8">
+        <div class="font-bold text-2xl mb-2">Invoice for {{ current_user.nom }}</div>
+        <div class="text-sm text-gray-500">{{ facture.date_creation.strftime('%Y-%m-%d %H:%M:%S') }}</div>
+    </div>
+
+
+    <div class="overflow-x-auto">
+        <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+            <thead class="ltr:text-left rtl:text-right">
+                <tr>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Product</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Quantity</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Price per unit</th>
+                    <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">Total price</th>
+                </tr>
+            </thead>
+
+            <tbody class="divide-y divide-gray-200">
+                {% for product_id, item in cart.items() %}
+                <tr class="odd:bg-gray-50">
+                    <td align="center" class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">{{ item['name'] }}
+                    </td>
+                    <td align="center" class="whitespace-nowrap px-4 py-2 text-gray-700">{{ item['quantity'] }}</td>
+                    <td align="center" class="whitespace-nowrap px-4 py-2 text-gray-700">{{ item['price'] }} $</td>
+                    <td align="center" class="whitespace-nowrap px-4 py-2 text-gray-700">{{ item['quantity'] *
+                        item['price'] }} $</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-right font-bold text-4xl mt-4">
+        <span class="text-blue-200">Total :</span> {{ total_price }} $
+    </div>
+</div>
+<div class="w-2/3 mx-auto">
+    <div class="mt-8">
+        <a href="/client/validate" class="bg-green-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Receive your invoice
+        </a>
+    </div>
+</div>
+{% endblock %}

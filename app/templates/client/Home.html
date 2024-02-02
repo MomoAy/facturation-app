@@ -1,0 +1,101 @@
+{% extends 'base_client.html' %}
+{% block title %}
+Ecom
+{% endblock %}
+{% block content %}
+<header class="bg-gray-200">
+    <div class="mx-auto w-full px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+        <div class="sm:flex sm:items-center sm:justify-between">
+            <div class="text-center sm:text-left">
+                <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">Welcome, {{user.nom}}</h1>
+
+                <p class="mt-1.5 text-sm text-gray-500">Do some shopping 🎉</p>
+            </div>
+
+            <div class="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
+                <span class="w-12 h-12">
+                    <a href="/client/view_cart">
+                        <?xml version="1.0" ?><svg viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <rect fill="none" height="256" width="256" />
+                            <path d="M184,184H69.8L41.9,30.6A8,8,0,0,0,34.1,24H16" fill="none" stroke="#000"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+                            <circle cx="80" cy="204" fill="none" r="20" stroke="#000" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="16" />
+                            <circle cx="184" cy="204" fill="none" r="20" stroke="#000" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="16" />
+                            <path d="M62.5,144H188.1a15.9,15.9,0,0,0,15.7-13.1L216,64H48" fill="none" stroke="#000"
+                                stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
+                        </svg>
+                    </a>
+                </span>
+                <span class="w-8 h-8">
+                    <a href="/auth/logout">
+                        <?xml version="1.0" ?><svg id="Layer_1" style="enable-background:new 0 0 24 24;" version="1.1"
+                            viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <style type="text/css">
+                                .st0 {
+                                    fill: none;
+                                    stroke: #000000;
+                                    stroke-width: 1.6724;
+                                    stroke-linecap: round;
+                                    stroke-linejoin: round;
+                                    stroke-miterlimit: 10;
+                                }
+
+                                .st1 {
+                                    fill: none;
+                                    stroke: #000000;
+                                    stroke-width: 1.5;
+                                    stroke-linecap: round;
+                                    stroke-linejoin: round;
+                                    stroke-miterlimit: 10;
+                                }
+
+                                .st2 {
+                                    fill: none;
+                                    stroke: #000000;
+                                    stroke-width: 1.5;
+                                    stroke-linejoin: round;
+                                    stroke-miterlimit: 10;
+                                }
+                            </style>
+                            <g>
+                                <g>
+                                    <line class="st1" x1="7.6" x2="22" y1="12" y2="12" />
+                                </g>
+                                <g>
+                                    <path class="st1"
+                                        d="M11.9,0.8H4.5C3.1,0.8,2,1.9,2,3.2v17.5c0,1.4,1.1,2.5,2.5,2.5h7.4" />
+                                </g>
+                                <polyline class="st1" points="18.2,8.2 22,12 18.2,15.8  " />
+                            </g>
+                        </svg>
+                    </a>
+                </span>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="mx-auto flex flex-wrap justify-center">
+    {% for product in all_products %}
+    <div class="w-60 h-80 bg-gray-700 p-3 flex flex-col m-6 gap-1 rounded-br-3xl">
+        <div
+            class="duration-500 contrast-50 h-48 bg-gradient-to-bl from-black via-orange-900 to-indigo-600  hover:contrast-100 bg-cover">
+            <!-- <i>Image Indisponible pour le moment</i> -->
+            <img class="w-full h-full" src="../../static/Images/indisponible.jpg" alt="">
+        </div>
+        <div class="flex flex-col gap-4">
+            <div class="flex flex-row justify-between">
+                <div class="flex flex-col">
+                    <span class="text-xl text-gray-50 font-bold">{{product.nom}}</span>
+                </div>
+                <span class="font-bold  text-red-600">{{product.prix}} $</span>
+            </div>
+            <a href="/client/add_to_cart/{{product.id}}"
+                class="hover:bg-sky-700 text-gray-50 bg-sky-800 py-2 rounded-br-xl flex justify-center">Add to cart</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

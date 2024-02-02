@@ -1,0 +1,66 @@
+{% extends 'base_auth.html' %}
+{% block title %} Register Page {% endblock %} 
+{% block content %}
+<section class="bg-center bg-no-repeat bg-cover overflow-y-auto p-12" style="background-image: url('../static/Images/fond4.jpg')">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <a href="#" class="flex items-center mb-6  text-2xl font-semibold">
+            <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" />
+            BIGSTORE
+        </a>
+        <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 opacity-80">
+            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl">
+                    Sign Up
+                </h1>
+                <p class="text-sm font-light text-gray-500">
+                    You have an account yet?
+                    <a href="/auth/login" class="font-medium text-primary-600 hover:underline">Login</a>
+                </p>
+                <form class="space-y-4 md:space-y-6" action="/auth/signup" method="post">
+                    <div>
+                        <label for="name" class="block mb-2 text-sm font-medium">Your name</label>
+                        <input type="text" name="name" id="name"
+                            class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            placeholder="Mohamed AYEVA" required />
+                    </div>
+                    <div>
+                        <label for="tel" class="block mb-2 text-sm font-medium">Your tel</label>
+                        <input type="tel" name="tel" id="tel"
+                            class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            placeholder="0022892347548" required />
+                    </div>
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium">Your email</label>
+                        <input type="email" name="email" id="email"
+                            class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            placeholder="name@momo.com" required />
+                    </div>
+                    <div>
+                        <label for="password" class="block mb-2 text-sm font-medium">Password</label>
+                        <input type="password" name="password" id="password" placeholder="••••••••"
+                            class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            required />
+                    </div>
+                    <div>
+                        <label for="repeat_password" class="block mb-2 text-sm font-medium">Confirm Password</label>
+                        <input type="password" name="repeat_password" id="repeat_password" placeholder="••••••••"
+                            class="bg-gray-50 border border-gray-300 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
+                            required />
+                    </div>
+                    <div class="flex items-start">
+                        <button type="submit" class="ml-auto mr-auto relative border hover:border-sky-600 duration-500 group cursor-pointer text-sky-50  overflow-hidden h-14 w-56 rounded-md bg-sky-800 p-2 flex justify-center items-center font-extrabold">
+                            <div class="absolute z-10 w-48 h-48 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-900 delay-150 group-hover:delay-75"></div>
+                            <div class="absolute z-10 w-40 h-40 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-800 delay-150 group-hover:delay-100"></div>
+                            <div class="absolute z-10 w-32 h-32 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-700 delay-150 group-hover:delay-150"></div>
+                            <div class="absolute z-10 w-24 h-24 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-600 delay-150 group-hover:delay-200"></div>
+                            <div class="absolute z-10 w-16 h-16 rounded-full group-hover:scale-150 transition-all  duration-500 ease-in-out bg-sky-500 delay-150 group-hover:delay-300"></div>
+                            <p class="z-10">Sign Up</p>
+                          </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

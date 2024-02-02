@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%} Site ecom {% endblock %}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="mt-0">
+    {% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    {% if category == "error" %}
+    <div x-cloak x-show="showAlert" x-data="{ showAlert: true }" x-init="setTimeout(() => showAlert = false, 4000)"
+        role="alert" class="bg-red-100 p-4">
+        <p>{{message}} </p>
+    </div>
+    {% elif category == "success" %}
+    <div x-cloak x-show="showAlert" x-data="{ showAlert: true }" x-init="setTimeout(() => showAlert = false, 4000)"
+        role="alert" class="bg-green-100 p-4">
+        <p>{{message}} </p>
+    </div>
+    {% else %}
+    <div x-cloak x-show="showAlert" x-data="{ showAlert: true }" x-init="setTimeout(() => showAlert = false, 4000)"
+        role="alert" class="bg-blue-100 p-4">
+        <p>{{message}} </p>
+    </div>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <div class="flex">
+        <div class="w-full h-screen bg-gray-100">
+        {% block content %}
+
+        {% endblock %}
+    </div></div>
+    
+
+    <script defer src="https://unpkg.com/alpinejs@latest/dist/cdn.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.2.1/flowbite.min.js"></script>
+</body>
+
+</html>
