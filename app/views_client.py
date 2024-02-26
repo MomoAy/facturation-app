@@ -52,7 +52,7 @@ def add_to_cart(product_id):
     if product_id in cart:
         cart[product_id]['quantity'] += 1
     else:
-        cart[product_id] = {'quantity': 1, 'name': product.nom, 'price': float(product.prix)}
+        cart[product_id] = {'quantity': 1, 'name': product.nom, 'price': float(product.prix), 'image': product.image}
 
     flash(f"{product.nom} a été ajouté à votre panier.", 'success')
     return redirect(url_for("views_client.home"))
@@ -136,8 +136,8 @@ def validate():
 
 
 def send_email_with_attachment(to_email, subject, body, attachment_path):
-    sender_email = 'mohamed.ayeva.123@gmail.com'
-    sender_password = 'atlq rail outa wjjc'
+    sender_email = ''
+    sender_password = ''
 
     message = MIMEMultipart()
     message['From'] = sender_email

@@ -16,8 +16,7 @@ Cart
 
                     {% for item_id, item_info in cart.items() %}
                     <li class="flex items-center gap-4">
-                        <img src="../../static/Images/indisponible.jpg"
-                            alt="" class="h-16 w-16 rounded object-cover" />
+                        <img src="{{item_info.image}}" alt="" class="h-16 w-16 rounded object-cover" />
 
                         <div>
                             <h3 class="text-sm text-gray-900">{{item_info.name}}</h3>
@@ -38,7 +37,8 @@ Cart
                                     class="h-8 w-12 rounded border-gray-200 bg-gray-50 p-0 text-center text-xs text-gray-600 [-moz-appearance:_textfield] focus:outline-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none" />
                             </form>
 
-                            <a href="/client/remove_item/{{item_id}}" class="text-gray-600 transition hover:text-red-600">
+                            <a href="/client/remove_item/{{item_id}}"
+                                class="text-gray-600 transition hover:text-red-600">
                                 <span class="sr-only">Remove item</span>
 
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -141,7 +141,8 @@ Cart
     </div>
 </section>
 <section class="my-2 w-4/5 mx-auto">
-        <a class="text-yellow-400" href="/client/">Back to home</a> - <a class="text-yellow-400" href="/auth/logout/">Logout</a>
+    <a class="text-yellow-400" href="/client/">Back to home</a> - <a class="text-yellow-400"
+        href="/auth/logout/">Logout</a>
 </section>
 
 {% endblock %}

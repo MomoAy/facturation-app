@@ -9,7 +9,7 @@ Invoice
                 src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg" alt="logo" /></span> BIGSTORE</div>
 
     <div class="mb-8">
-        <div class="font-bold text-2xl mb-2">Invoice for{{ current_user.nom }}</div>
+        <div class="font-bold text-2xl mb-2">Invoice for {{ current_user.nom }}</div>
         <div class="text-sm text-gray-500">{{ date.strftime('%Y-%m-%d %H:%M:%S') }}</div>
     </div>
 
