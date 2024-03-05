@@ -1,26 +1,29 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash, session, make_response
-from flask_login import login_required, current_user
-from . import db 
-from werkzeug.security import generate_password_hash, check_password_hash
-from .models import Produit, Facture, DetailFacture
-from datetime import datetime
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
-from io import BytesIO
-import json
-import requests
-import pywhatkit
-import os
-import time
-import pdfkit
-from weasyprint import HTML
-from email.mime.multipart import MIMEMultipart
-from email.mime.base import MIMEBase
-from email import encoders
-import ssl
 import io
+import json
+import os
+import smtplib
+import ssl
+import time
+from datetime import datetime
+from email import encoders
+from email.mime.base import MIMEBase
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from io import BytesIO
+
+import pdfkit
+import pywhatkit
+import requests
+from flask import (Blueprint, flash, make_response, redirect, render_template,
+                   request, session, url_for)
+from flask_login import current_user, login_required
 from pdf2image import convert_from_path
+from weasyprint import HTML
+from werkzeug.security import check_password_hash, generate_password_hash
+
+from . import db
+from .models import DetailFacture, Facture, Produit
+
 # import imgkit
 # import base64
 # import aspose.words as aw
@@ -136,8 +139,8 @@ def validate():
 
 
 def send_email_with_attachment(to_email, subject, body, attachment_path):
-    sender_email = ''
-    sender_password = ''
+    sender_email = 'mohamed.ayeva.123@gmail.com'
+    sender_password = ''#Je pourrais retrouver le code sur chat gpt ou la copie envoyer à thierno sur telegram
 
     message = MIMEMultipart()
     message['From'] = sender_email
